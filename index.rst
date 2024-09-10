@@ -11,13 +11,19 @@ Simulator on Unity + PhysX communicating with ROS
 .. image:: https://user-images.githubusercontent.com/24404939/159425467-c244de28-354e-4d2a-a615-5ccafc7b9709.gif
 
 .. toctree::
-   :maxdepth: 2
+   :maxdepth: 3
    :caption: Contents:
 
    introduction
    install
    ros-topics-and-messages
    parameter-tuning
+   
+.. toctree::
+   :maxdepth: 2
+   :caption: IMUとGNSSの取り付け方法:
+
+   imu_gnss/imu_gnss
 
 Indices and tables
 ==================
