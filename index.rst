@@ -18,13 +18,8 @@ Simulator on Unity + PhysX communicating with ROS
    install
    ros-topics-and-messages
    parameter-tuning
+   imu_gnss
    
-.. toctree::
-   :maxdepth: 2
-   :caption: IMUとGNSSの取り付け方法:
-
-   imu_gnss/imu_gnss
-
 Indices and tables
 ==================
 
