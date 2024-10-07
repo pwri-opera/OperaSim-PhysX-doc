@@ -8,6 +8,7 @@ Unity Sensorsパッケージのインストール方法
 １．ショベル実機のＩＭＵセンサの取り付け位置確認
 
 シミュレーション対応の実機についてＩＭＵセンサの取り付け位置を
+
 写真などにて確認する（例：zx120）
 
 .. list-table::
@@ -75,14 +76,20 @@ Unity Sensorsパッケージのインストール方法
    * - 入力するURL【※１】
      - "https://github.com/Field-Robotics-Japan/UnitySensors.git?path=/Assets/UnitySensors#v2.0.4"
 
-【※１】注意：Package のバージョンについては、記載時以降にバージョンアップされる場合があります
-　下記のURL にて最新バージョンを確認の上対応のPackage についてURLを入力してください
-　Assets/UnitySensors　https://github.com/Field-Robotics-Japan/UnitySensors
+【※１】注意：Package のバージョンについては、
+
+　　　記載時以降にバージョンアップされる場合があります
+
+　　　下記のURL にて最新バージョンを確認の上
+
+　　　対応のPackage についてURLを入力してください
+
+　　　Assets/UnitySensors　https://github.com/Field-Robotics-Japan/UnitySensors
 
 ５．UnitySensors パッケージがインストールされる
 
 .. list-table::
-   :widths: 15 10
+   :widths: 10 15
    :header-rows: 1
 
    * - 図　1-5 　[拡大]
@@ -96,7 +103,7 @@ Unity Sensorsパッケージのインストール方法
 ６．UnitySensors パッケージがインストールされたことを確認する
 
 .. list-table::
-   :widths: 15 10
+   :widths: 10 15
    :header-rows: 1
 
    * - 図　1-6 　[拡大]
@@ -107,19 +114,16 @@ Unity Sensorsパッケージのインストール方法
           :width: 200px
      - UnitySensors パッケージがインストールされたことを確認する
 
-７．Package Manager ウィンドウのメニューバーから再度、「＋」「Add package from git URL」を選択する
+７．UnitySensorsROS パッケージのインストール
+
+Package Manager ウィンドウのメニューバーから再度、「＋」「Add package from git URL」を選択する
 
 .. list-table::
    :widths: 15 10
    :header-rows: 1
 
-   * - 図　1-7-a　図 1-7-b　[拡大] 
+   * - 図　1-7　[拡大] 
      - 操作
-   * - .. image:: imu_gnss/img/unity-03.png
-          :scale: 100%
-          :height: 100px
-          :width: 200px
-     - Package Manager ウィンドウ
    * - .. image:: imu_gnss/img/unity-04.png
           :scale: 100%
           :height: 100px
@@ -142,14 +146,20 @@ Unity Sensorsパッケージのインストール方法
    * - 入力するURL【※２】
      - "https://github.com/Field-Robotics-Japan/UnitySensors.git?path=/Assets/UnitySensorsROS#v2.0.4" 
 
-【※２】注意：Package のバージョンについては、記載時以降にバージョンアップされる場合があります
-　下記のURL にて最新バージョンを確認の上対応のPackage についてURLを入力してください
-　Assets/UnitySensors　https://github.com/Field-Robotics-Japan/UnitySensors
+【※２】注意：Package のバージョンについては、
+
+　　　記載時以降にバージョンアップされる場合があります
+
+　　　下記のURL にて最新バージョンを確認の上
+
+　　　対応のPackage についてURLを入力してください
+
+　　　Assets/UnitySensors　https://github.com/Field-Robotics-Japan/UnitySensors
 
 ９．UnitySensorsROS パッケージがインストールされる
 
 .. list-table::
-   :widths: 15 10
+   :widths: 10 15
    :header-rows: 1
 
    * - 図　1-9 　[拡大]
@@ -198,7 +208,9 @@ Unity Editor を起動し、ＩＭＵの空オブジェクトを作成する（�
           :width: 200px
      - unity 「Hierarchy」タブから「zx120」「base_link」「body_link」「boom_link」を選択し右クリックで「Create Empty」を選択する
 
-boom_imu の場合、ショベルの実機写真（図　1-1 ）からショベルモデルのboom_link から空オブジェクトを作成する
+　　　boom_imu の場合、ショベルの実機写真（図　1-1 ）から
+
+　　　ショベルモデルのboom_link から空オブジェクトを作成する
 
 ２．「Inspector」タブで GameObjectに名称を設定する（例：boom_imu）
 
@@ -288,7 +300,7 @@ boom_imu の場合、ショベルの実機写真（図　1-1 ）からショベ�
 ８.「Inspector」タブを確認する
 
 .. list-table::
-   :widths: 15 10
+   :widths: 10 15
    :header-rows: 1
 
    * - 図　2-8 　[拡大]
@@ -302,7 +314,7 @@ boom_imu の場合、ショベルの実機写真（図　1-1 ）からショベ�
 ９.unity のPlay ボタンを選択する
 
 .. list-table::
-   :widths: 15 10
+   :widths: 10 15
    :header-rows: 1
 
    * - 図　2-9 
@@ -316,7 +328,7 @@ boom_imu の場合、ショベルの実機写真（図　1-1 ）からショベ�
 10.「Inspector」タブがデータ更新されていることを確認する
 
 .. list-table::
-   :widths: 15 10
+   :widths: 10 15
    :header-rows: 1
 
    * - 図　2-10 　[拡大]
@@ -327,15 +339,18 @@ boom_imu の場合、ショベルの実機写真（図　1-1 ）からショベ�
           :width: 200px
      - 「Inspector」タブがデータ更新されていることを確認する
 
-同様の方法で、swing、arm、bucket についてＩＭＵセンサモデルを追加する
+　　　同様の方法で、swing、arm、bucket について
+
+　　　ＩＭＵセンサモデルを追加する
 
 GNSSセンサモデルの追加方法
 --------------------------
 
 １．ショベル実機のＧＮＳＳセンサの取り付け位置確認
 
-シミュレーション対応の実機についてＧＮＳＳセンサの取り付け位置を
-写真などにて確認する（例：zx120）
+　　　シミュレーション対応の実機についてＧＮＳＳセンサの取り付け位置を
+
+　　　写真などにて確認する（例：zx120）
 
 .. list-table::
    :widths: 15 30
@@ -349,12 +364,12 @@ GNSSセンサモデルの追加方法
           :width: 200px
      - 実機写真を参考に取り付け位置を確認する
 
-ＧＮＳＳセンサは、実機写真からショベルモデルの　body部分に設定されていることを確認する 
+　　　ＧＮＳＳセンサは、実機写真からショベルモデルの　body部分に設定されていることを確認する 
 
 
 ２．Unity Editorで空オブジェクトCreate Emptyの作成
 
-Unity Editor を起動し、ＧＮＳＳの空オブジェクトを作成する
+　　　Unity Editor を起動し、ＧＮＳＳの空オブジェクトを作成する
 
 .. list-table::
    :widths: 15 30
@@ -489,7 +504,7 @@ Unity Editor を起動し、ＧＮＳＳの空オブジェクトを作成する
 10.「Inspector」タブを確認する
 
 .. list-table::
-   :widths: 15 10
+   :widths: 15 15
    :header-rows: 1
 
    * - 図　3-11 　[拡大]
@@ -503,7 +518,7 @@ Unity Editor を起動し、ＧＮＳＳの空オブジェクトを作成する
 11.「Inspector」タブを確認する
 
 .. list-table::
-   :widths: 15 10
+   :widths: 10 15
    :header-rows: 1
 
    * - 図　3-12 　[拡大]
@@ -518,7 +533,7 @@ Unity Editor を起動し、ＧＮＳＳの空オブジェクトを作成する
 12.unity のPlay ボタンを選択する
 
 .. list-table::
-   :widths: 15 10
+   :widths: 10 15
    :header-rows: 1
 
    * - 図　3-13 
@@ -532,7 +547,7 @@ Unity Editor を起動し、ＧＮＳＳの空オブジェクトを作成する
 13.「Inspector」タブが更新されていることを確認する
 
 .. list-table::
-   :widths: 15 10
+   :widths: 10 15
    :header-rows: 1
 
    * - 図　3-14 　[拡大]
@@ -541,16 +556,18 @@ Unity Editor を起動し、ＧＮＳＳの空オブジェクトを作成する
           :scale: 100%
           :height: 100px
           :width: 200px
-     - 「Inspector」タブに表示されている緯度、経度が現在地を示していることを確認する
+     - 「Inspector」タブに表示されている緯度、経度がショベルの原点位置を示していることを確認する
 
-「Inspector」タブの「Geo Coordinate System」コンポーネントの「Latitude、Longitude」が現在地を示していることを確認します
+　　　「Inspector」タブの「Geo Coordinate System」コンポーネントの
 
-ROS Topic コマンドによるセンサモデルの設定情報取得とＩＭＵのデータ値設定
+　　　「Latitude、Longitude」が作業を実施する原点位置を示していることを確認する
+
+センサモデルの設定情報取得とＩＭＵのデータ値設定
 --------------------------------------------------------------------------
 
 １．ROS環境の起動（zx120）
 
-linux (ubuntu 18.04)環境を立ち上げる
+　　　linux (ubuntu 18.04)環境を立ち上げる
 
 .. list-table::
    :widths: 15 30
@@ -565,7 +582,7 @@ linux (ubuntu 18.04)環境を立ち上げる
      - linuxターミナルを立ち上げ　ROSCORE を起動する
 
 
-２．実機で取得したROSBAG データを再生する
+２．ROS-Unity 間通信環境を立ち上げる
 
 .. list-table::
    :widths: 15 30
@@ -573,13 +590,12 @@ linux (ubuntu 18.04)環境を立ち上げる
 
    * - 図　4-2 　[拡大]
      - 操作
-   * - .. image:: imu_gnss/img/ros-02.png
+   * - .. image:: imu_gnss/img/ros-unity-01.png
           :scale: 100%
           :height: 100px
           :width: 200px
-     - linuxターミナルを立ち上げ 「rosbag play 2024-04-25-15-17-31.bag」を入力する
+     - linuxターミナルを立ち上げ 「roslaunch ros_tcp_endpoint endpoint.launch」を入力する
 
-ショベルの実機通信サンプルデータ「2024-04-25-15-17-31.bag」をrosbag play で再生する
 
 ３．linuxターミナルを立ち上げ 「rostopic list」にてＩＭＵのトピック名称を確認する
 
@@ -593,9 +609,9 @@ linux (ubuntu 18.04)環境を立ち上げる
           :scale: 100%
           :height: 100px
           :width: 200px
-     - linuxターミナルを立ち上げ 「rosbag list」を入力する
+     - linuxターミナルを立ち上げ 「rostopic list」を入力する
 
-例　boom の場合、「/zx120/boom/boom_imu」を確認する
+　　　例　boom の場合、「/zx120/boom/boom_imu」を確認する
 
 ４．実機で取得したサンプルデータから実際のIMU周期データを取得する
 
@@ -613,7 +629,7 @@ linux (ubuntu 18.04)環境を立ち上げる
 
 表示された周期から、平均的に１００hz を確認する
 
-５．実機で取得したROSBAG データを再生からする/zx120/boom/boom_imu のセンサ情報の周期を「Inspector」タブにデータを設定する
+５．取得した通信データから　/zx120/boom/boom_imu のセンサ情報の周期を「Inspector」タブにデータを設定する
 
 .. list-table::
    :widths: 15 30
@@ -643,12 +659,16 @@ linux (ubuntu 18.04)環境を立ち上げる
      - 「Inspector」タブで「Topic Name」と「Frame_id」を設定する
 
 
-ＩＭＵセンサをショベルモデルに取り付けて位置調整する
---------------------------------------------------------------------------
+unity ショベルモデルの scene 空間でＩＭＵセンサを取り付けて位置情報と座標軸を調整する
+----------------------------------------------------------------------------------------------------------------
 
-１．ショベル実機のＩＭＵセンサをショベルモデルに取り付けて位置調整を行う
+１．ショベル実機のＩＭＵセンサと同じ位置にショベルモデルに取り付けて位置調整を行う
 
-シミュレーション対応の実機についてＩＭＵセンサの取り付け位置を写真などにて確認する（例：zx120 boom_imu）
+　　　シミュレーション対応の実機についてＩＭＵセンサの取り付け位置を
+
+　　　写真などにて確認する（例：zx120 boom_imu）
+
+　　　ショベルモデルと実機が完全に一致しない場合、近い位置に設置する
 
 .. list-table::
    :widths: 15 30
@@ -656,33 +676,30 @@ linux (ubuntu 18.04)環境を立ち上げる
 
    * - 図　5-1 　[拡大]
      - 内容
-   * - .. image:: imu_gnss/img/IMG_2387.jpg
+   * - .. image:: imu_gnss/img/zx120-01.jpg
           :scale: 100%
           :height: 100px
-          :width: 200px
-     - 実機写真を参考に取り付け位置を確認する
-   * - .. image:: imu_gnss/img/IMG_2394.jpg
+          :width: 100px
+     - 実機写真を参考に取り付け位置を確認する#1
+   * -  .. image:: imu_gnss/img/zx120-04.jpg
           :scale: 100%
           :height: 100px
-          :width: 200px
-     - 実機写真を参考に取り付け位置を確認する
+          :width: 100px
+     - 実機写真を参考に取り付け位置を確認する#2
    * - .. image:: imu_gnss/img/imu-b-1-1.png
           :scale: 100%
           :height: 100px
           :width: 200px
-     - Unity Editorで「Scene」タブを選択し「Ctrl」キーを押下しながら「マウス」を操作しショベルboomのimuの取り付け位置を調整する
+     - Unity Editorで「Scene」タブを選択し「Ctrl」キーを押下しながら「マウス」を操作しショベルboomのimuの取り付け位置を選択する
    * - .. image:: imu_gnss/img/imu-b-2.png
           :scale: 100%
           :height: 100px
           :width: 200px
-     - Unity Editorで「Scene」タブを選択し「Ctrl」キーを押下しながら「マウス」を操作しショベルboomのimuの取り付け位置を調整する
-   * - .. image:: imu_gnss/img/imu-b-2.png
-          :scale: 100%
-          :height: 100px
-          :width: 200px
-     - Unity Editorで「Scene」タブを選択しショベルboomのimuの取り付け位置を確認
+     - 選択したboom のimu の取り付け位置を確認する
 
-ＩＭＵセンサの取り付け位置でギズモのx-y-zの軸方向実機ショベルと一致するようにマウスで調整する（座標系の違い参照）
+　　　ＩＭＵセンサの取り付け位置でギズモのx-y-zの軸方向実機ショベルと
+
+　　　一致するようにマウスで調整する（座標系の違い参照）
 
 【参考】
 
@@ -692,16 +709,20 @@ linux (ubuntu 18.04)環境を立ち上げる
 
    * - 図　5-2 　[拡大]
      - 説明
-   * - .. image:: imu_gnss/img/unity-ros-01.png
+   * - .. image:: imu_gnss/img/zahyo-01.jpg
           :scale: 100%
           :height: 100px
-          :width: 200px
-     - unityと実機ＩＭＵセンサでの座標系の違い
-   * - .. image:: imu_gnss/img/unity-ros-02.png
+          :width: 100px
+       .. image:: imu_gnss/img/zahyo-02.jpg
           :scale: 100%
           :height: 100px
-          :width: 200px
-     - unityと実機ＩＭＵセンサでの座標系の変換方法
+          :width: 100px
+     - unityと実機(ROS)ＩＭＵセンサでの座標系の違い
+   * - .. image:: imu_gnss/img/zahyo-05.jpg
+          :scale: 100%
+          :height: 100px
+          :width: 100px
+     - unityと実機(ROS)ＩＭＵセンサでの座標系の変換方法
 
 
 ＩＭＵセンサは、zx120ショベルの場合、swing、boom、arm、bucket　が存在する
