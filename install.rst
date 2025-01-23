@@ -8,12 +8,12 @@
 
 
 - windows 又は Macの場合: https://unity3d.com/jp/get-unity/download
-- Linuxの場合(Linux版は動作確認していない): https://unity3d.com/get-unity/download
+- Linuxの場合(Linux版は動作確認を実施しておりません): https://unity3d.com/get-unity/download
 
 2. Projectファイルの開き方とUnity Editorのダウンロード
 ------------------------------------------------------
 
-- UnityHubを起動し、画面右上の「追加」から `OperaSim_PhysX` (Githubから自身のPCにダウンロードしたもの)選択し、クリックする（初回起動時には数分程度の時間がかかります）。クリックした際に指定のUnity Editorを選択しダウンロードする。
+- UnityHubを起動し、画面右上の「追加」から `OperaSim-PhysX` (Githubから自身のPCにクローン又はダウンロードしたもの)を選択し、クリックする（初回起動時には数分程度の時間がかかります）。クリックした際に指定のUnity Editorを選択しインストールする。
 
 3. Sceneファイルの選択
 ----------------------
