@@ -29,7 +29,7 @@ Stiffness（剛性）とDamping（減衰）の各係数は、下の式に用い�
 
     加えられるトルク = 剛性係数 * (駆動位置 - ターゲット位置) - 減衰係数 * (駆動速度 - ターゲット速度)
 
-上記、各パラメータの詳しい説明は、Unityの公式マニュアルも参照ください。
+上記、各パラメータの詳しい説明は、Unityの公式マニュアルを参照ください。
 
 https://docs.unity3d.com/ja/2023.2/Manual/class-ArticulationBody.html#joint-drive-properties
 

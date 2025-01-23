@@ -18,8 +18,10 @@ Simulator on Unity + PhysX communicating with ROS
    install
    ros-topics-and-messages
    parameter-tuning
+   machine
    imu_gnss
-   
+   ground_shape
+
 Indices and tables
 ==================
 
