@@ -18,10 +18,10 @@ Simulator on Unity + PhysX communicating with ROS
    install
    ros-topics-and-messages
    parameter-tuning
-   machine
+   construction_machine_model
    imu_gnss
-   ground_shape
-
+   install_3dmodel
+   
 Indices and tables
 ==================
 

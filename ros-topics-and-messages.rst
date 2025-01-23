@@ -1,8 +1,8 @@
 ROSと連携時の送受信データ
-=================
+===========================
 
 建機へのコマンド(ROS -> Unity) 
-----------------------------
+-------------------------------
 
 .. list-table::
 
@@ -48,9 +48,11 @@ ROSと連携時の送受信データ
       - 角度
       - [rad]
       -
-   
+
+
+
 建機の情報の取得(Unity -> ROS)
----------------------------
+--------------------------------
 
 .. list-table::
 
@@ -78,9 +80,35 @@ ROSと連携時の送受信データ
       - 角度・角速度
       - 角度:[rad]  角速度:[rad/s]
       - effortについては次節を参照
+    * - 建機のIMUセンサ
+      - /(建機のns)/(関節部位)/g2_imu
+      - sensor_msgs/JointState
+      - 角度・角速度
+      - 角度:[rad]  角速度:[rad/s]
+      - effortについては次節を参照
+    * - 建機のGNSSセンサ
+      - /(建機のns)/gnss_compass/fix
+      - sensor_msgs/JointState
+      - 角度・角速度
+      - 角度:[rad]  角速度:[rad/s]
+      - effortについては次節を参照
+    * - 建機のGNSSセンサ
+      - /(建機のns)/gnss_compass/heading
+      - geometry_msgs/QuaternionStamped
+      - 時刻・座標
+      - 時間[sec:nsec]・位置:[m]
+      - effortについては次節を参照
+    * - unityの基準時計
+      - /clock
+      - rosgraph_msgs/Clock
+      - 時刻
+      - 時間[sec:nsec]
+      - effortについては次節を参照
+
+
 
 関節トルクセンサの有効化
----------------------
+--------------------------
 
 各ゲームオブジェクトに設定された `Joint State Publisher` スクリプトの `Enable Joint Effort Sensor` をチェックすることで、joint_statesトピックからeffort値を出力させることができます。
 
