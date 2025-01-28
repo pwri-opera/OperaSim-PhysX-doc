@@ -2,17 +2,18 @@
 建機モデルの追加方法
 ===============================
 
-既存重機モデルを追加する方法
+既存の重機モデルを追加する方法
 ------------------------------------------
 
-【サンプルモデルの例：zx120ショベルの場合】
+【サンプルモデルの例：12t油圧ショベルzx120の場合】
 
-| =============================================
-| １．ショベル実機の既存３Ｄモデルデータから 
-|      unity editor にモデルを追加する方法
-| =============================================
+| ============================================================
+| １．既に構築済の建設機械のシミュレーションモデル（GameObject）を 
+|      Prefab化して再利用する方法
+| ============================================================
 
-１－１．既存の３Ｄモデルデータのエクスポート（Prefab の作成）
+１－１．既存の建機モデル（GameObject）のエクスポート（Prefabの作成）
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 .. list-table::
    :widths: 15 30
@@ -24,8 +25,8 @@
           :scale: 100%
           :height: 100px
           :width: 200px
-     - | unity editor から既存のショベルモデルを選択する
-       | 例：zx120ショベル
+     - | Hierarchy上からPrefab化したい建機モデルを選択する
+       | 例：zx120の場合
 
 .. list-table::
    :widths: 15 30
@@ -33,11 +34,12 @@
 
    * - 図　1-2 　[拡大]
      - 内容
-   * - .. image:: construction_machine_model/img/prefab-02.png
+   * - .. image:: construction_machine_model/img/create_prefab.png
           :scale: 100%
           :height: 100px
           :width: 200px
-     - 「Prefab」「GameObject」「Export To FBX」を選択する
+     - | ProjectウィンドウよりAssets/Prefabフォルダを
+       | 選択しドラッグ＆ドロップする
 
 .. list-table::
    :widths: 15 30
@@ -45,11 +47,14 @@
 
    * - 図　1-3 　[拡大]
      - 内容
-   * - .. image:: construction_machine_model/img/prefab-03.png
+   * - .. image:: construction_machine_model/img/prefab_file.png
           :scale: 100%
           :height: 100px
           :width: 200px
-     - 「Export Option」ウインドウが表示される
+     - prefabファイル(zx120.prefab)がAssets/Prefabフォルダ下に作成される
+
+１－２．作成したprefabファイルを同一プロジェクトへインポートする
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 .. list-table::
    :widths: 15 30
@@ -57,11 +62,12 @@
 
    * - 図　1-4 　[拡大]
      - 内容
-   * - .. image:: construction_machine_model/img/prefab-04.png
+   * - .. image:: construction_machine_model/img/prefab_use.png
           :scale: 100%
           :height: 100px
           :width: 200px
-     - 「Export」を選択する
+     - | ProjectウィンドウのAssets/Prefabフォルダから配置したい建機の
+       | prefabファイルを選択しScene上へドラッグ＆ドロップする
 
 .. list-table::
    :widths: 15 30
@@ -69,139 +75,29 @@
 
    * - 図　1-5 　[拡大]
      - 内容
-   * - .. image:: construction_machine_model/img/prefab-04-1.png
+   * - .. image:: construction_machine_model/img/prefab_rename.png
           :scale: 100%
           :height: 100px
           :width: 200px
-     - Export されたFBXファイルをエクスプローラで確認する
+     - | Sceneビュー上で建機モデルの配置を調整し
+       | Inspectorウィンドウ上のObject名を固有のものへ修正する
+
+３Dメッシュアッセンブリデータ（.urdf）を基に重機モデルを新規作成する方法
+-------------------------------------------------------------------------
 
 
-１－２．既存の３Ｄモデルデータを同一プロジェクトへのインポートする（Prefab）
+.. 油圧ショベル
+.. ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
+【例：12t油圧ショベルzx120の場合】
+
+２－１．URDF Importerパッケージの追加
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 .. list-table::
    :widths: 15 30
    :header-rows: 1
 
-   * - 図　1-6 　[拡大]
-     - 内容
-   * - .. image:: construction_machine_model/img/prefab-12.png
-          :scale: 100%
-          :height: 100px
-          :width: 200px
-     - 「Project」「Assets」「Prefab」参照タブ右クリック「Convert TO FBX Prefab Variant...」を選択する
-
-.. list-table::
-   :widths: 15 30
-   :header-rows: 1
-
-   * - 図　1-7 　[拡大]
-     - 内容
-   * - .. image:: construction_machine_model/img/prefab-13.png
-          :scale: 100%
-          :height: 100px
-          :width: 200px
-     - 「Project」「Assets」「Prefab」内の既存ショベルモデル「zx120.fbx」を選択する
-
-.. list-table::
-   :widths: 15 30
-   :header-rows: 1
-
-   * - 図　1-8 　[拡大]
-     - 内容
-   * - .. image:: construction_machine_model/img/prefab-14.png
-          :scale: 100%
-          :height: 100px
-          :width: 200px
-     - 「zx120」を選択し「Hierarchy」タブにドラッグ＆ドロップする
-
-.. list-table::
-   :widths: 15 30
-   :header-rows: 1
-
-   * - 図　1-9　[拡大]
-     - 内容
-   * - .. image:: construction_machine_model/img/prefab-16.png
-          :scale: 100%
-          :height: 100px
-          :width: 200px
-     - 生成された既存の３Ｄモデルを確認する
-
-※インポートした新規ショベルモデルの動作用初期設定については別途記載
-
-１－３．既存の３Ｄモデルデータを別プロジェクトへのインポートする（Prefab）
-
-.. list-table::
-   :widths: 15 30
-   :header-rows: 1
-
-   * - 図　1-10 　[拡大]
-     - 内容
-   * - .. image:: construction_machine_model/img/prefab-05.png
-          :scale: 100%
-          :height: 100px
-          :width: 200px
-     - エクスポートした既存ショベルモデルをインポートする
-
-.. list-table::
-   :widths: 15 30
-   :header-rows: 1
-
-   * - 図　1-11 　[拡大]
-     - 内容
-   * - .. image:: construction_machine_model/img/prefab-06.png
-          :scale: 100%
-          :height: 100px
-          :width: 200px
-     - 「Assets」「Import New Assets」を選択する
-
-.. list-table::
-   :widths: 15 30
-   :header-rows: 1
-
-   * - 図　1-12 　[拡大]
-     - 内容
-   * - .. image:: construction_machine_model/img/prefab-08.png
-          :scale: 100%
-          :height: 100px
-          :width: 200px
-     - エクスポートした既存ショベルモデル「zx120.fbx」を選択する
-
-.. list-table::
-   :widths: 15 30
-   :header-rows: 1
-
-   * - 図　1-13 　[拡大]
-     - 内容
-   * - .. image:: construction_machine_model/img/prefab-11.png
-          :scale: 100%
-          :height: 100px
-          :width: 200px
-     - インポートした既存ショベルモデルを確認する
-
-※インポートした新規ショベルモデルの動作用初期設定については別途記載
-
-
-新規重機モデルの作成方法
-------------------------------------------
-
-
-油圧ショベル
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-
-【サンプルモデル 例：zx120ショベルの場合】
-
-| ======================================================
-| １．ショベル実機の３Ｄモデルデータ(URDF)から
-|      unity editor に新規ショベルモデルを追加する方法
-| ======================================================
-
-１－１．URDF Importer のパッケージ追加
-
-.. list-table::
-   :widths: 15 30
-   :header-rows: 1
-
-   * - 図　1-14 　[拡大]
+   * - 図　2-1 　[拡大]
      - 内容
    * - .. image:: construction_machine_model/img/prefab-17.png
           :scale: 100%
@@ -214,7 +110,7 @@
    :widths: 15 30
    :header-rows: 1
 
-   * - 図　1-15 　[拡大]
+   * - 図　2-2 　[拡大]
      - 内容
    * - .. image:: construction_machine_model/img/prefab-18.png
           :scale: 100%
@@ -228,7 +124,7 @@
    :widths: 15 30
    :header-rows: 1
 
-   * - 図　1-16 　[拡大]
+   * - 図　2-3 　[拡大]
      - 内容
    * - .. image:: construction_machine_model/img/prefab-19.png
           :scale: 100%
@@ -245,51 +141,48 @@
    :widths: 15 30
    :header-rows: 1
 
-   * - 図　1-17 　[拡大]
+   * - 図　2-4 　[拡大]
      - 内容
    * - .. image:: construction_machine_model/img/prefab-21.png
           :scale: 100%
           :height: 100px
           :width: 200px
-     - URDF Importer のパッケージがインストールされる
+     - URDF Importerをインストール中の画面
 
 .. list-table::
    :widths: 15 30
    :header-rows: 1
 
-   * - 図　1-18 　[拡大]
+   * - 図　2-5 　[拡大]
      - 内容
    * - .. image:: construction_machine_model/img/prefab-22.png
           :scale: 100%
           :height: 100px
           :width: 200px
-     - URDF Importer のパッケージのインストールを確認する
+     - URDF Importerがパッケージリスト上にあることを確認する
 
-インポートする新規の重機モデル(urdf)ファイルをunity editor 内にコピーする
-
-+-------+----------------------------------------------------+
-+ urdf  + 例：roid1_urdf_unuty.urdf　ファイル                +
-+-------+----------------------------------------------------+
-
+２－２．重機の３D形状アッセンブリデータ(zx120.urdf)をインポートする
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 .. list-table::
    :widths: 15 30
    :header-rows: 1
 
-   * - 図　1-19 　[拡大]
+   * - 図　2-6 　[拡大]
      - 内容
-   * - .. image:: construction_machine_model/img/prefab-23.png
+   * - .. image:: construction_machine_model/img/urdf_importer.png
           :scale: 100%
           :height: 100px
           :width: 200px
-     - | 「Project」タブから「Assets」「３DモデルのURDFデータ」を選択し
-       | 右クリックで「Import Robot from Selected URDF file」を選択する
+     - | ProjectウィンドウからAssets/Machines/zx120フォルダ
+       | にあるzx120(.urdf)を右クリックして表示されるリストから
+       | 「Import Robot from Selected URDF file」を選択する
 
 
 .. list-table::
    :widths: 15 30
    :header-rows: 1
 
-   * - 図　1-20 　[拡大]
+   * - 図　2-7 　[拡大]
      - 内容
    * - .. image:: construction_machine_model/img/prefab-24.png
           :scale: 100%
@@ -302,807 +195,432 @@
    :widths: 15 30
    :header-rows: 1
 
-   * - 図　1-21 　[拡大]
+   * - 図　2-8 　[拡大]
      - 内容
-   * - .. image:: construction_machine_model/img/prefab-26.png
+   * - .. image:: construction_machine_model/img/imported_urdf.png
           :scale: 100%
           :height: 100px
           :width: 200px
-     - 新規ショベルモデルが追加されたことを確認する
+     - zx120の形状モデルがScene上に現れたことを確認する
 
 
-１－２．追加したショベルモデルの動作用初期設定
+２－３．建機モデルを動作させるための諸設定
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+.. list-table::
+   :widths: 15 30
+   :header-rows: 1
+
+   * - 図　2-9　[拡大]
+     - 内容
+   * - .. image:: construction_machine_model/img/zx120_object_tree.png
+          :scale: 100%
+          :height: 100px
+          :width: 200px
+     - | Hierarchyウィンドウ上でインポートしたオブジェクトのツリーを展開して表示する
+       | （zx120 - base_link - body_link - boom_link - arm_link-bucket_link - bucket_end_link）
+
+zx120のルートオブジェクトへのコンポーネント追加とパラメータセッティング
 
 .. list-table::
    :widths: 15 30
    :header-rows: 1
 
-   * - 図　1-22 　[拡大]
+   * - 図　2-10 　[拡大]
      - 内容
-   * - .. image:: construction_machine_model/img/initial_param-01.png
+   * - .. image:: construction_machine_model/img/zx120_object_components.png
           :scale: 100%
           :height: 100px
           :width: 200px
-     - unity editorを確認する
-
-１－２－１）Package Manager　：　In Project の追加初期設定
-
-+---------------------------------------------------------------------------------------------------------------------------+
-| 「Package Manager」の設定で「Packages In Project」 を選択し                                                               |
-+---------------------------------------------------------------------------------------------------------------------------+
-| 下図に示す「Package - Unity」のリストで不足しているライブラリを選択してインストールする                                   |
-+---------------------------------------------------------------------------------------------------------------------------+
-| 「更新前」から「更新後」のように追加インストールする                                                                      |
-+---------------------------------------------------------------------------------------------------------------------------+
-
+     - | zx120のルートオブジェクト"zx120"を選択し
+       | Inspectorウィンドウより「Add Component」
+       | をクリックして必要なコンポーネントを追加する
+       | またController(Script)のチェックボックスを外す
 
 .. list-table::
    :widths: 15 30
    :header-rows: 1
 
-   * - 図　1-23 　[拡大]
+   * - 図　2-11 　[拡大]
      - 内容
-   * - .. image:: construction_machine_model/img/initial_param-04.png
+   * - .. image:: construction_machine_model/img/zx120_object_setting1.png
           :scale: 100%
           :height: 100px
           :width: 200px
-     - | 「Window」「Package Manager」In Project の追加初期設定として
-       |  更新前から更新後までを実施する
-
-ライブラリーの更新手順（繰り返し実施する）
+     - | 各種Componentのパラメータを設定する
+       | Joint State Publisher, Follow Joint Trajectory(左)
+       | Diff Drive Controller(右)
+       | 各コンポーネント, パラメータについては説明割愛
 
 .. list-table::
    :widths: 15 30
    :header-rows: 1
 
-   * - 図　1-24 　[拡大]
+   * - 図　2-12 　[拡大]
      - 内容
-   * - .. image:: construction_machine_model/img/initial_param-02.png
+   * - .. image:: construction_machine_model/img/zx120_object_setting2.png
           :scale: 100%
           :height: 100px
           :width: 200px
-     - 「Window」「Package Manager」を選択する
+     - | 各種Componentのパラメータを設定する
+       | Rigidbody, Box Collider(左)
+       | Fixed Joint, Custom Collision ZX120(右)
+       | 各コンポーネント, パラメータについては説明割愛
+
+zx120のbase_linkオブジェクトへのコンポーネント追加とパラメータセッティング
 
 .. list-table::
    :widths: 15 30
    :header-rows: 1
 
-   * - 図　1-25 　[拡大]
+   * - 図　2-13 　[拡大]
      - 内容
-   * - .. image:: construction_machine_model/img/initial_param-03-1.png
+   * - .. image:: construction_machine_model/img/zx120_base_link_components.png
           :scale: 100%
           :height: 100px
           :width: 200px
-     - Package Managerタブの「Packages:」「▼」を選択し「In-Project」を選択する
+     - | zx120の子であるbase_linkオブジェクトをHierarchyウィンドウより選択し
+       | Inspectorウィンドウより「Add Component」
+       | をクリックして必要なコンポーネントを追加する
+       | またController(Script)のチェックボックスを外す
 
 .. list-table::
    :widths: 15 30
    :header-rows: 1
 
-   * - 図　1-26 　[拡大]
+   * - 図　2-14 　[拡大]
      - 内容
-   * - .. image:: construction_machine_model/img/initial_param-04-1.png
+   * - .. image:: construction_machine_model/img/zx120_base_link_object_setting.png
           :scale: 100%
           :height: 100px
           :width: 200px
-     - Package Managerタブのライブラリー一覧を確認する
+     - | base_linkにアタッチした各種Componentのパラメータを設定する
+       | ArticulationBody, Urdf Inertial
+       | Pose Stamped Publisher
+       | 各コンポーネント, パラメータについては説明割愛
 
-
-+----------------------------------------------------------------------------------+
-| ライブラリー一覧から下記の一覧で未インストールのライブラリーがあれば             |
-+----------------------------------------------------------------------------------+
-| 「+」「Add package from git URL...」を選択する                                   |
-+----------------------------------------------------------------------------------+
-| 下記の表から指定のURL をコピーしてテキストボックスにURL を貼り付けて             |
-+----------------------------------------------------------------------------------+
-| 所定のライブラリーをインストールする                                             |
-+----------------------------------------------------------------------------------+
-
-
-追加でインストールするライブラリー一覧
-
-+-------------+---------------------------------------------------------------------------------------------------------------------------+----------+
-| 種別名称    | インストールするライブラリ名称                                                                                            | チェック |
-+             +---------------------------------------------------------------------------------------------------------------------------+----------+
-| ＵＲＬ      | インストールするライブラリＵＲＬ                                                                                          |          |
-+-------------+---------------------------------------------------------------------------------------------------------------------------+----------+
-| 13Pixels    | GitMerge for Unity                                                                                                        |          |
-+             +---------------------------------------------------------------------------------------------------------------------------+----------+
-|             | https://github.com/FlaShG/GitMerge-for-Unity.git                                                                          |          |
-+-------------+---------------------------------------------------------------------------------------------------------------------------+----------+
-| Other       | Jobs                                                                                                                      |          |
-+             +---------------------------------------------------------------------------------------------------------------------------+----------+
-|             | https://github.com/needle-mirror/com.unity.jobs.git                                                                       |          |
-+-------------+---------------------------------------------------------------------------------------------------------------------------+----------+
-| Other       | ROS TCP Connector                                                                                                         |          |
-+             +---------------------------------------------------------------------------------------------------------------------------+----------+
-|             | https://github.com/Unity-Technologies/ROS-TCP-Connector.git?path=/com.unity.robotics.ros-tcp-connector#v0.7.1             |          |
-+-------------+---------------------------------------------------------------------------------------------------------------------------+----------+
-| Other       | Unity Robotics Visualizations                                                                                             |          |
-+             +---------------------------------------------------------------------------------------------------------------------------+----------+
-|             | https://github.com/Unity-Technologies/ROS-TCP-Connector.git?path=/com.unity.robotics.visualization                        |          |
-+-------------+---------------------------------------------------------------------------------------------------------------------------+----------+
-| Other       | URDF Importer                                                                                                             |          |
-+             +---------------------------------------------------------------------------------------------------------------------------+----------+
-|             | https://github.com/Unity-Technologies/URDF-Importer.git?path=/com.unity.robotics.urdf-importer#v0.                        |          |
-+-------------+---------------------------------------------------------------------------------------------------------------------------+----------+
+zx120のbody_linkオブジェクトへのコンポーネント追加とパラメータセッティング
 
 .. list-table::
    :widths: 15 30
    :header-rows: 1
 
-   * - 図　1-27 　[拡大]
+   * - 図　2-15 　[拡大]
      - 内容
-   * - .. image:: construction_machine_model/img/initial_param-04.png
+   * - .. image:: construction_machine_model/img/zx120_body_link_components.png
           :scale: 100%
           :height: 100px
           :width: 200px
-     - Package Managerタブのライブラリー一覧を確認する
-
-
-
-１－２－２）Package Manager　：　Unity Registry の追加初期設定
+     - | base_linkの子であるbody_linkオブジェクトをHierarchyウィンドウより選択し
+       | Inspectorウィンドウより「Add Component」
+       | をクリックして必要なコンポーネントを追加する
+       | またController(Script)のチェックボックスを外す
 
 .. list-table::
    :widths: 15 30
    :header-rows: 1
 
-   * - 図　1-28 　[拡大]
+   * - 図　2-16 　[拡大]
      - 内容
-   * - .. image:: construction_machine_model/img/initial_param-05.png
+   * - .. image:: construction_machine_model/img/zx120_body_link_object_setting.png
           :scale: 100%
           :height: 100px
           :width: 200px
-     - Package Managerタブのライブラリー一覧を確認する
+     - | body_linkにアタッチした各種Componentのパラメータを設定する
+       | ArticulationBody, Joint Pos Controller
+       | 各コンポーネント, パラメータについては説明割愛
 
-+-------------------------------------------------------------------------------------------+
-| 「Package Manager」の設定で「Packages Unity Registry」 を選択し                           |
-+-------------------------------------------------------------------------------------------+
-| 下図に示す「Package - Unity」のリストで不足しているライブラリを選択してインストールする   |
-+-------------------------------------------------------------------------------------------+
-| 「更新前」から「更新後」のように追加インストールする                                      |
-+-------------------------------------------------------------------------------------------+
+zx120のboom_linkオブジェクトへのコンポーネント追加とパラメータセッティング
 
 .. list-table::
    :widths: 15 30
    :header-rows: 1
 
-   * - 図　1-29 　[拡大]
+   * - 図　2-17 　[拡大]
      - 内容
-   * - .. image:: construction_machine_model/img/initial_param-05-1.png
+   * - .. image:: construction_machine_model/img/zx120_boom_link_components.png
           :scale: 100%
           :height: 100px
           :width: 200px
-     - Package Managerタブの「Packages:」「▼」を選択し「Unity Registry」を選択する
-
-+-------------+---------------------------------------------------------------+----------+
-| 種別名称    | インストールするライブラリ名称                                | チェック |
-+             +---------------------------------------------------------------+----------+
-| ＵＲＬ      | インストールするライブラリＵＲＬ                              |          |
-+-------------+---------------------------------------------------------------+----------+
-| Unity       | AI Navigation                                                 |          |
-+             +---------------------------------------------------------------+----------+
-|             | FBX Exporter                                                  |          |
-+             +---------------------------------------------------------------+----------+
-|             | Unity Profiling Core API                                      |          |
-+-------------+---------------------------------------------------------------+----------+
-| Unity       | Autodesk FBX SDK for Unity                                    |          |
-+             +---------------------------------------------------------------+----------+
-|             | https://github.com/Unity-Technologies/com.autodesk.fbx.git    |          |
-+-------------+---------------------------------------------------------------+----------+
+     - | body_linkの子であるboom_linkオブジェクトをHierarchyウィンドウより選択し
+       | Inspectorウィンドウより「Add Component」
+       | をクリックしてJoint Pos Controllerを追加する
 
 .. list-table::
    :widths: 15 30
    :header-rows: 1
 
-   * - 図　1-30 　[拡大]
+   * - 図　2-18 　[拡大]
      - 内容
-   * - .. image:: construction_machine_model/img/initial_param-13-1.png
+   * - .. image:: construction_machine_model/img/zx120_boom_link_object_setting.png
           :scale: 100%
           :height: 100px
           :width: 200px
-     - | Package Managerタブの「Packages」からインストールする
-       | 「AI Navigation」を選択し右上の「Install」を選択する
+     - | boom_linkにアタッチした各種Componentのパラメータを設定する
+       | Transform
+       | ArticulationBody, Joint Pos Controller
+       | 各コンポーネント, パラメータについては説明割愛
+
+zx120のarm_linkオブジェクトへのコンポーネント追加とパラメータセッティング
 
 .. list-table::
    :widths: 15 30
    :header-rows: 1
 
-   * - 図　1-31 　[拡大]
+   * - 図　2-19 　[拡大]
      - 内容
-   * - .. image:: construction_machine_model/img/initial_param-13-2.png
+   * - .. image:: construction_machine_model/img/zx120_arm_link_components.png
           :scale: 100%
           :height: 100px
           :width: 200px
-     - 「AI Navigation」がインストールされる
+     - | boom_linkの子であるarm_linkオブジェクトをHierarchyウィンドウより選択し
+       | Inspectorウィンドウより「Add Component」
+       | をクリックしてJoint Pos Controllerを追加する
 
 .. list-table::
    :widths: 15 30
    :header-rows: 1
 
-   * - 図　1-32 　[拡大]
+   * - 図　2-20 　[拡大]
      - 内容
-   * - .. image:: construction_machine_model/img/initial_param-13-3.png
+   * - .. image:: construction_machine_model/img/zx120_arm_link_object_setting.png
           :scale: 100%
           :height: 100px
           :width: 200px
-     - 「AI Navigation」のインストールを確認する
+     - | arm_linkにアタッチした各種Componentのパラメータを設定する
+       | Transform
+       | ArticulationBody, Joint Pos Controller
+       | 各コンポーネント, パラメータについては説明割愛
 
-不足しているライブラリを選択してインストールする 
+zx120のbucket_linkの不要ジオメトリの削除
 
 .. list-table::
    :widths: 15 30
    :header-rows: 1
 
-   * - 図　1-33 　[拡大]
+   * - 図　2-21 　[拡大]
      - 内容
-   * - .. image:: construction_machine_model/img/initial_param-05-3.png
+   * - .. image:: construction_machine_model/img/zx120_bucket_link_object_delete.png
           :scale: 100%
           :height: 100px
           :width: 200px
-     - Package Managerタブのライブラリー一覧を確認する
+     - | bucket_linkの子であるCollisionsオブジェクトをHierarchyウィンドウより全て削除する
+       | 同様にVisualsオブジェクト中のarm-bk-dmおよびbk-C-dmを削除する
 
-
-２）作成済Script の追加初期設定
-
-作成済のScript をシミュレーションモデルにアサインする
-
+zx120のbucket_linkの粒子保持用干渉形状の生成
 
 .. list-table::
    :widths: 15 30
    :header-rows: 1
 
-   * - 図　2-1 　[拡大]
+   * - 図　2-22 　[拡大]
      - 内容
-   * - .. image:: construction_machine_model/img/initial_param-08-0.png
+   * - .. image:: construction_machine_model/img/zx120_bucket_link_add_collider.png
           :scale: 100%
           :height: 100px
           :width: 200px
-     - 「Project」「Assets」「Create」「Folder」を選択し「Script」を入力しフォルダーを作成する
+     - | Collisionsオブジェクトに残ったbakeオブジェクトに
+       | SA Mesh Collider Builderスクリプトをアタッチする
+       | https://assetstore.unity.com/packages/tools/sacolliderbuilder-15058
 
-+-------------+----------------------------------------+
-| データ種別  | Script 一覧                            |
-+-------------+----------------------------------------+
-| Folder      | BAPointCloudRenderer                   |
-+-------------+----------------------------------------+
-| Folder      | Editor                                 |
-+-------------+----------------------------------------+
-| File        | BucketRocks.cs                         |
-+-------------+----------------------------------------+
-| Files       | Clock.cs                               |
-+-------------+----------------------------------------+
-| Files       | ConvexHullCalculator.cs                |
-+-------------+----------------------------------------+
-| Files       | CustomCollisionIZX120.cs               |
-+-------------+----------------------------------------+
-| Files       | FollowJointTrajectoryAction.cs         |
-+-------------+----------------------------------------+
-| Files       | GroundTruthPublisher.cs                |
-+-------------+----------------------------------------+
-| Files       | GroundTruthTFPublisher.cs              |
-+-------------+----------------------------------------+
-| Files       | JointPosController.cs                  |
-+-------------+----------------------------------------+
-| Files       | JointStatePublisher.cs                 |
-+-------------+----------------------------------------+
-| Files       | NewLayer 1.terrainlayer                |
-+-------------+----------------------------------------+
-| Files       | NewLayer.terrainlayer                  |
-+-------------+----------------------------------------+
-| Files       | OdomPublisher.cs                       |
-+-------------+----------------------------------------+
-| Files       | OperaSimPhysXAssembly.asmdef           |
-+-------------+----------------------------------------+
-| Files       | PoseStampedPublisher.cs                |
-+-------------+----------------------------------------+
-| Files       | QuaternionStampedPublisher.cs          |
-+-------------+----------------------------------------+
-| Files       | RealtimeFactorProfiler.cs              |
-+-------------+----------------------------------------+
-| Files       | ROSClockPublisher.cs                   |
-+-------------+----------------------------------------+
-| Files       | SoilParticleSettings.cs                |
-+-------------+----------------------------------------+
-| Files       | TimeStamp.cs                           |
-+-------------+----------------------------------------+
-| Files       | VesselController.cs                    |
-+-------------+----------------------------------------+
-
+zx120のbucket_linkの粒子保持用干渉形状の生成
 
 .. list-table::
    :widths: 15 30
    :header-rows: 1
 
-   * - 図　2-2　[拡大]
+   * - 図　2-23 　[拡大]
      - 内容
-   * - .. image:: construction_machine_model/img/initial_param-11.png
+   * - .. image:: construction_machine_model/img/zx120_bucket_link_process_collider.png
           :scale: 100%
           :height: 100px
           :width: 200px
-     - 「Scripts」フォルダーに作成済のスクリプトデータをコピーする
+     - | SA Mesh Collider Builder上からprocessを左クリックして
+       | Herarchy上のbacketオブジェクト以下に「Prim.***」という
+       | 矩形オブジェクトが多数生成されることを確認する
+
+zx120のbucket_linkの粒子生成用干渉形状の生成
 
 .. list-table::
    :widths: 15 30
    :header-rows: 1
 
-   * - 図　2-3 　[拡大]
+   * - 図　2-24 　[拡大]
      - 内容
-   * - .. image:: construction_machine_model/img/initial_param-09-1.png
+   * - .. image:: construction_machine_model/img/zx120_bucket_link_add_collider.png
           :scale: 100%
           :height: 100px
           :width: 200px
-     - 「Scripts」フォルダーに作成済のスクリプトデータを確認する
+     - | bucket_innerについて 
+       | （松坂さん、作成方法の手順について追記お願いします） 
 
-３）ショベルモデルのinspector データ初期設定
+２－４．移動体（クローラ）部を6輪スキッドステアとしてモデル化する方法
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+zx120のルートオブジェクトに空オブジェクトのwheelsを追加する
 
 .. list-table::
    :widths: 15 30
    :header-rows: 1
 
-   * - 図　3-1　[拡大]
+   * - 図　2-25 　[拡大]
      - 内容
-   * - .. image:: construction_machine_model/img/initial_param-20.png
+   * - .. image:: construction_machine_model/img/zx120_add_wheels_object.png
           :scale: 100%
           :height: 100px
           :width: 200px
-     - | unity editeorの「Hierarchy」 で追加したショベルモデルの
-       | 各関節をツリー表示する
-       | zx120、base_link、body_link、boom_link、arm_link、bucket_link など
-
+     - | zx120のルートオブジェクトをHierarchyウィンドウより選択し
+       | 右クリックで表示されるリストから「Create Empty」を選択し
+       | Inspector上でオブジェクト名をwheelsとする
+       | またLayerを「Ignore Collision」に設定する
 
 .. list-table::
    :widths: 15 30
    :header-rows: 1
 
-   * - 図　3-2 　[拡大]
+   * - 図　2-26 　[拡大]
      - 内容
-   * - .. image:: construction_machine_model/img/initial_inspector-01-0-zx120.png
+   * - .. image:: construction_machine_model/img/zx120_add_wheel_link_objects.png
           :scale: 100%
           :height: 100px
           :width: 200px
-     - zx120のInspectorを確認する
+     - | wheelsオブジェクトに対し、6つのEmptyオブジェクトを追加し
+       | それぞれ名称を「right_rear_wheel_link」「right_middle_wheel_link」
+       | 「right_front_wheel_link」「left_rear_wheel_link」
+       | 「left_middle_wheel_link」「left_front_wheel_link」に設定する
 
 .. list-table::
    :widths: 15 30
    :header-rows: 1
 
-   * - 図　3-3 　[拡大]
+   * - 図　2-27 　[拡大]
      - 内容
-   * - .. image:: construction_machine_model/img/initial_inspector-02-base-0.png
+   * - .. image:: construction_machine_model/img/zx120_wheel_object_config.png
           :scale: 100%
           :height: 100px
           :width: 200px
-     - base_linkのInspectorを確認する
-
-
-.. list-table::
-   :widths: 15 30
-   :header-rows: 1
-
-   * - 図　3-4 　[拡大]
-     - 内容
-   * - .. image:: construction_machine_model/img/initial_inspector-03-0-body.png
-          :scale: 100%
-          :height: 100px
-          :width: 200px
-     - body_linkのInspectorを確認する
-
-
-.. list-table::
-   :widths: 15 30
-   :header-rows: 1
-
-   * - 図　3-5 　[拡大]
-     - 内容
-   * - .. image:: construction_machine_model/img/initial_inspector-04-boom-1-0.png
-          :scale: 100%
-          :height: 100px
-          :width: 200px
-     - boom_linkのInspectorを確認する
-
-.. list-table::
-   :widths: 15 30
-   :header-rows: 1
-
-   * - 図　3-6 　[拡大]
-     - 内容
-   * - .. image:: construction_machine_model/img/initial_param-24.png
-          :scale: 100%
-          :height: 100px
-          :width: 200px
-     - arm_linkのInspectorを確認する
-
-.. list-table::
-   :widths: 15 30
-   :header-rows: 1
-
-   * - 図　3-7 　[拡大]
-     - 内容
-   * - .. image:: construction_machine_model/img/initial_inspector-05-arm-1-0.png
-          :scale: 100%
-          :height: 100px
-          :width: 200px
-     - bucket_linkのInspectorを確認する
-
-.. list-table::
-   :widths: 15 30
-   :header-rows: 1
-
-   * - 図　3-8 　[拡大]
-     - 内容
-   * - .. image:: construction_machine_model/img/initial_inspector-06-bucket-1-0.png
-          :scale: 100%
-          :height: 100px
-          :width: 200px
-     - bucket_linkのInspectorを確認する
-
-
-+-------------------------------------------------------------------------------+
-+ 駆動関節部分のInspector Component　が不足しているcomponent　について          +
-+-------------------------------------------------------------------------------+
-+ 「Add Component」ボタンを選択して追加し                                       +
-+-------------------------------------------------------------------------------+
-+ component が追加されていることを確認する                                      +
-+-------------------------------------------------------------------------------+
-
-+-------------+------------------+---------+---------------------------+
-|             | Game Object Name |  Active | Component                 |
-+-------------+------------------+---------+---------------------------+
-| Inspector   | zx120            |   〇    | Transform                 |
-+             +                  +---------+---------------------------+
-|             |                  |   〇    | Urdf Robot                |
-+             +                  +---------+---------------------------+
-|             |                  |         | Controller                |
-+             +                  +---------+---------------------------+
-|             |                  |         | Rigidbody                 |
-+             +                  +---------+---------------------------+
-|             |                  |   〇    | Box Collidar              |
-+             +                  +---------+---------------------------+
-|             |                  |         | Fixed Joint               |
-+             +                  +---------+---------------------------+
-|             |                  |   〇    | Joint State Publisher     |
-+-------------+------------------+---------+---------------------------+
-| Inspector   | base_link        |   〇    | Transform                 |
-+             +                  +---------+---------------------------+
-|             |                  |   〇    | Articulation body         |
-+             +                  +---------+---------------------------+
-|             |                  |   〇    | Urdf Inertial             |
-+-------------+------------------+---------+---------------------------+
-|Inspector    | body_link        |   〇    | Transform                 |
-+             +                  +---------+---------------------------+
-|             |                  |   〇    | Articulation body         |
-+             +                  +---------+---------------------------+
-|             |                  |   〇    | Urdf Inertial             |
-+             +                  +---------+---------------------------+
-|             |                  |   〇    | Urdf Joint Continuous     |
-+             +                  +---------+---------------------------+
-|             |                  |   〇    | Joint Pos Controller      |
-+             +                  +---------+---------------------------+
-|             |                  |         | Pose Stamped Publisher    |
-+-------------+------------------+---------+---------------------------+
-|Inspector    | boom_link        |   〇    | Transform                 |
-+             +                  +---------+---------------------------+
-|             |                  |   〇    | Articulation body         |
-+             +                  +---------+---------------------------+
-|             |                  |   〇    | Urdf Inertial             |
-+             +                  +---------+---------------------------+
-|             |                  |   〇    | Urdf Joint Revolute       |
-+             +                  +---------+---------------------------+
-|             |                  |   〇    | Joint Pos Controller      |
-+-------------+------------------+---------+---------------------------+
-|Inspector    | arm_link         |   〇    | Transform                 |
-+             +                  +---------+---------------------------+
-|             |                  |   〇    | Urdf link                 |
-+             +                  +---------+---------------------------+
-|             |                  |   〇    | Articulation body         |
-+             +                  +---------+---------------------------+
-|             |                  |   〇    | Urdf Inertial             |
-+             +                  +---------+---------------------------+
-|             |                  |   〇    | Urdf Joint Revolute       |
-+             +                  +---------+---------------------------+
-|             |                  |   〇    | Joint Pos Controller      |
-+-------------+------------------+---------+---------------------------+
-|Inspector    | bucket_link      |   〇    | Transform                 |
-+             +                  +---------+---------------------------+
-|             |                  |   〇    | Urdf link                 |
-+             +                  +---------+---------------------------+
-|             |                  |   〇    | Articulation body         |
-+             +                  +---------+---------------------------+
-|             |                  |   〇    | Urdf Inertial             |
-+             +                  +---------+---------------------------+
-|             |                  |   〇    | Urdf Joint Revolute       |
-+             +                  +---------+---------------------------+
-|             |                  |   〇    | Joint Pos Controller      |
-+-------------+------------------+---------+---------------------------+
-
-Inspector の追加方法（例：boom_link）
-
-.. list-table::
-   :widths: 15 30
-   :header-rows: 1
-
-   * - 図　3-9 　[拡大]
-     - 内容
-   * - .. image:: construction_machine_model/img/initial_inspector-010-boom-1.png
-          :scale: 100%
-          :height: 100px
-          :width: 200px
-     - boom関節部のInspectorを確認する
-
-.. list-table::
-   :widths: 15 30
-   :header-rows: 1
-
-   * - 図　3-10 　[拡大]
-     - 内容
-   * - .. image:: construction_machine_model/img/initial_inspector-010-boom-2.png
-          :scale: 100%
-          :height: 100px
-          :width: 200px
-     - boom関節部のInspectorで「Add Component」を選択する
-
-.. list-table::
-   :widths: 15 30
-   :header-rows: 1
-
-   * - 図　3-11 　[拡大]
-     - 内容
-   * - .. image:: construction_machine_model/img/initial_inspector-010-boom-3.png
-          :scale: 100%
-          :height: 100px
-          :width: 200px
-     - 「Joint Pos Controller」を入力しComponentを追加する
-
-.. list-table::
-   :widths: 15 30
-   :header-rows: 1
-
-   * - 図　3-12 　[拡大]
-     - 内容
-   * - .. image:: construction_machine_model/img/initial_inspector-010-boom-4.png
-          :scale: 100%
-          :height: 100px
-          :width: 200px
-     - 「Joint Pos Controller」のInspectorを確認する
-
-
-
-
-４）ショベルモデルの初期設定データの初期作成
-
-
-４－１）zx120
-
-.. list-table::
-   :widths: 15 30
-   :header-rows: 1
-
-   * - 図　4-1 　[拡大]
-     - 内容
-   * - .. image:: construction_machine_model/img/initial_inspector-01-zx120.png
-          :scale: 100%
-          :height: 100px
-          :width: 200px
-     - zx120関節部のInspectorを確認する
-
-.. list-table::
-   :widths: 15 30
-   :header-rows: 1
-
-   * - 図　4-2 　[拡大]
-     - 内容
-   * - .. image:: construction_machine_model/img/initial_inspector-01-0-zx120.png
-          :scale: 100%
-          :height: 100px
-          :width: 200px
-     - zx120関節部のInspectorを確認する
-
-４－２）base_link
-
-.. list-table::
-   :widths: 15 30
-   :header-rows: 1
-
-   * - 図　4-3 　[拡大]
-     - 内容
-   * - .. image:: construction_machine_model/img/initial_inspector-02-base.png
-          :scale: 100%
-          :height: 100px
-          :width: 200px
-     - base_link 関節部のInspectorを確認する
-
-.. list-table::
-   :widths: 15 30
-   :header-rows: 1
-
-   * - 図　4-4 　[拡大]
-     - 内容
-   * - .. image:: construction_machine_model/img/initial_inspector-02-base-0.png
-          :scale: 100%
-          :height: 100px
-          :width: 200px
-     - base_link 関節部のInspectorを確認する
-
-４－３）body_link
-
-.. list-table::
-   :widths: 15 30
-   :header-rows: 1
-
-   * - 図　4-5 　[拡大]
-     - 内容
-   * - .. image:: construction_machine_model/img/initial_inspector-03-body.png
-          :scale: 100%
-          :height: 100px
-          :width: 200px
-     - base_link 関節部のInspectorを確認する
-
-.. list-table::
-   :widths: 15 30
-   :header-rows: 1
-
-   * - 図　4-6 　[拡大]
-     - 内容
-   * - .. image:: construction_machine_model/img/initial_inspector-03-0-body.png
-          :scale: 100%
-          :height: 100px
-          :width: 200px
-     - base_link 関節部のInspectorを確認する
-
-４－４）boom_link
-
-
-.. list-table::
-   :widths: 15 30
-   :header-rows: 1
-
-   * - 図　4-7 　[拡大]
-     - 内容
-   * - .. image:: construction_machine_model/img/initial_inspector-04-boom-1.png
-          :scale: 100%
-          :height: 100px
-          :width: 200px
-     - boom_link 関節部のInspectorを確認する
-
-
-.. list-table::
-   :widths: 15 30
-   :header-rows: 1
-
-   * - 図　4-8 　[拡大]
-     - 内容
-   * - .. image:: construction_machine_model/img/initial_inspector-04-boom-2.png
-          :scale: 100%
-          :height: 100px
-          :width: 200px
-     - boom_link 関節部のInspectorを確認する
-
-.. list-table::
-   :widths: 15 30
-   :header-rows: 1
-
-   * - 図　4-9 　[拡大]
-     - 内容
-   * - .. image:: construction_machine_model/img/initial_inspector-04-boom-1-0.png
-          :scale: 100%
-          :height: 100px
-          :width: 200px
-     - boom_link 関節部のInspectorを確認する
-
-４－５）arm_link
-
-
-.. list-table::
-   :widths: 15 30
-   :header-rows: 1
-
-   * - 図　4-10 　[拡大]
-     - 内容
-   * - .. image:: construction_machine_model/img/initial_inspector-05-arm-1.png
-          :scale: 100%
-          :height: 100px
-          :width: 200px
-     - arm_link 関節部のInspectorを確認する
-
-.. list-table::
-   :widths: 15 30
-   :header-rows: 1
-
-   * - 図　4-11 　[拡大]
-     - 内容
-   * - .. image:: construction_machine_model/img/initial_inspector-05-arm-2.png
-          :scale: 100%
-          :height: 100px
-          :width: 200px
-     - arm_link 関節部のInspectorを確認する
-
-.. list-table::
-   :widths: 15 30
-   :header-rows: 1
-
-   * - 図　4-12 　[拡大]
-     - 内容
-   * - .. image:: construction_machine_model/img/initial_inspector-05-arm-1-0.png
-          :scale: 100%
-          :height: 100px
-          :width: 200px
-     - arm_link 関節部のInspectorを確認する
-
-４－６）bucket_link
-
-.. list-table::
-   :widths: 15 30
-   :header-rows: 1
-
-   * - 図　4-13 　[拡大]
-     - 内容
-   * - .. image:: construction_machine_model/img/initial_inspector-06-bucket-1.png
-          :scale: 100%
-          :height: 100px
-          :width: 200px
-     - bucket_link 関節部のInspectorを確認する
-
-.. list-table::
-   :widths: 15 30
-   :header-rows: 1
-
-   * - 図　4-14 　[拡大]
-     - 内容
-   * - .. image:: construction_machine_model/img/initial_inspector-06-bucket-2.png
-          :scale: 100%
-          :height: 100px
-          :width: 200px
-     - bucket_link 関節部のInspectorを確認する
-
-.. list-table::
-   :widths: 15 30
-   :header-rows: 1
-
-   * - 図　4-15 　[拡大]
-     - 内容
-   * - .. image:: construction_machine_model/img/initial_inspector-06-bucket-1-0.png
-          :scale: 100%
-          :height: 100px
-          :width: 200px
-     - bucket_link 関節部のInspectorを確認する
-
-５)追加したショベルモデルの関節部の駆動動作テスト
-
-.. list-table::
-   :widths: 15 30
-   :header-rows: 1
-
-   * - 図　5-1 　[拡大]
-     - 内容
-   * - .. image:: construction_machine_model/img/prefab-01.gif
-          :scale: 100%
-          :height: 100px
-          :width: 200px
-     - 追加された新規ショベルモデルが動作することを確認する
-
-.. list-table::
-   :widths: 15 30
-   :header-rows: 1
-
-   * - 図　5-2 　[拡大]
-     - 内容
-   * - .. figure:: construction_machine_model/img/unityショベル-02-1.mp4
-          :class: controls
-          :scale: 100%
-          :height: 100px
-          :width: 200px
-     - 追加された新規ショベルモデルが動作することを確認する
-   * - .. figure:: construction_machine_model/img/unityショベル-03-1.mp4
-          :class: controls
-          :scale: 100%
-          :height: 100px
-          :width: 200px
-     - 追加された新規ショベルモデルが動作することを確認する
+     - | 追加した各**_wheel_linkに対しInspector上で「Add Component」より
+       | 「Wheel Collider」を追加しTransform, WheelColliderにそれぞれ
+       | 適切にパラメータを設定する
+       | 各コンポーネント, パラメータについては説明割愛
+
+２－５．油圧ショベルのシミュレーションのため各オブジェクトにアタッチされるコンポーネントの一覧                                                        +
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
++-------------+-------------------------+---------+---------------------------+
+| Layer Depth | Game Object Name        |  Active | Component                 |
++-------------+-------------------------+---------+---------------------------+
+| 0           | zx120                   |   〇    | Transform                 |
++             +                         +---------+---------------------------+
+|             |                         |   〇    | Urdf Robot                |
++             +                         +---------+---------------------------+
+|             |                         |         | Controller                |
++             +                         +---------+---------------------------+
+|             |                         |   〇    | Joint State Publisher     |
++             +                         +---------+---------------------------+
+|             |                         |   〇    | Follow Joint Trajectory   |
++             +                         +---------+---------------------------+
+|             |                         |   〇    | DiffDriveController       |
++             +                         +---------+---------------------------+
+|             |                         |         | Rigidbody                 |
++             +                         +---------+---------------------------+
+|             |                         |   〇    | Box Collidar              |
++             +                         +---------+---------------------------+
+|             |                         |         | Fixed Joint               |
++             +                         +---------+---------------------------+
+|             |                         |   〇    | Custom Collision ZX120    |
++-------------+-------------------------+---------+---------------------------+
+| 1           | base_link               |   〇    | Transform                 |
++             +                         +---------+---------------------------+
+|             |                         |         | Urdf Link                 |
++             +                         +---------+---------------------------+
+|             |                         |   〇    | Articulation Body         |
++             +                         +---------+---------------------------+
+|             |                         |   〇    | Urdf Inertial             |
++             +                         +---------+---------------------------+
+|             |                         |   〇    | Pose Stamped Publisher    |
++-------------+-------------------------+---------+---------------------------+
+| 2           | body_link               |   〇    | Transform                 |
++             +                         +---------+---------------------------+
+|             |                         |         | Urdf Link                 |
++             +                         +---------+---------------------------+
+|             |                         |   〇    | Articulation body         |
++             +                         +---------+---------------------------+
+|             |                         |   〇    | Urdf Inertial             |
++             +                         +---------+---------------------------+
+|             |                         |   〇    | Urdf Joint Continuous     |
++             +                         +---------+---------------------------+
+|             |                         |   〇    | Joint Pos Controller      |
++-------------+-------------------------+---------+---------------------------+
+| 3           | boom_link               |   〇    | Transform                 |
++             +                         +---------+---------------------------+
+|             |                         |         | Urdf Link                 |
++             +                         +---------+---------------------------+
+|             |                         |   〇    | Articulation body         |
++             +                         +---------+---------------------------+
+|             |                         |   〇    | Urdf Inertial             |
++             +                         +---------+---------------------------+
+|             |                         |   〇    | Urdf Joint Revolute       |
++             +                         +---------+---------------------------+
+|             |                         |   〇    | Joint Pos Controller      |
++-------------+-------------------------+---------+---------------------------+
+| 4           | arm_link                |   〇    | Transform                 |
++             +                         +---------+---------------------------+
+|             |                         |         | Urdf link                 |
++             +                         +---------+---------------------------+
+|             |                         |   〇    | Articulation body         |
++             +                         +---------+---------------------------+
+|             |                         |   〇    | Urdf Inertial             |
++             +                         +---------+---------------------------+
+|             |                         |   〇    | Urdf Joint Revolute       |
++             +                         +---------+---------------------------+
+|             |                         |   〇    | Joint Pos Controller      |
++-------------+-------------------------+---------+---------------------------+
+| 5           | bucket_link             |   〇    | Transform                 |
++             +                         +---------+---------------------------+
+|             |                         |         | Urdf link                 |
++             +                         +---------+---------------------------+
+|             |                         |   〇    | Articulation body         |
++             +                         +---------+---------------------------+
+|             |                         |   〇    | Urdf Inertial             |
++             +                         +---------+---------------------------+
+|             |                         |   〇    | Urdf Joint Revolute       |
++             +                         +---------+---------------------------+
+|             |                         |         | SA Mesh Collider Builder  |
++             +                         +---------+---------------------------+
+|             |                         |   〇    | Joint Pos Controller      |
++-------------+-------------------------+---------+---------------------------+
+| 1           | wheels                  |   〇    | Transform                 |
++-------------+-------------------------+---------+---------------------------+
+| 2           | left_rear_wheel_link    |   〇    | Urdf link                 |
++             +                         +---------+---------------------------+
+|             |                         |   〇    | Wheel Collider            |
++-------------+-------------------------+---------+---------------------------+
+| 2           | left_middle_wheel_link  |   〇    | Urdf link                 |
++             +                         +---------+---------------------------+
+|             |                         |   〇    | Wheel Collider            |
++-------------+-------------------------+---------+---------------------------+
+| 2           | left_front_wheel_link   |   〇    | Urdf link                 |
++             +                         +---------+---------------------------+
+|             |                         |   〇    | Wheel Collider            |
++-------------+-------------------------+---------+---------------------------+
+| 2           | right_rear_wheel_link   |   〇    | Urdf link                 |
++             +                         +---------+---------------------------+
+|             |                         |   〇    | Wheel Collider            |
++-------------+-------------------------+---------+---------------------------+
+| 2           | right_middle_wheel_link |   〇    | Urdf link                 |
++             +                         +---------+---------------------------+
+|             |                         |   〇    | Wheel Collider            |
++-------------+-------------------------+---------+---------------------------+
+| 2           | right_front_wheel_link  |   〇    | Urdf link                 |
++             +                         +---------+---------------------------+
+|             |                         |   〇    | Wheel Collider            |
++-------------+-------------------------+---------+---------------------------+
 
 
 クローラダンプ
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+油圧ショベルと同様の手順で作成する
 
 ブルドーザ
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-
+TBD
