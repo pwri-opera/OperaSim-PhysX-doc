@@ -19,7 +19,7 @@ Simulator on Unity + PhysX communicating with ROS
    ros-topics-and-messages
    parameter-tuning
    construction_machine_model
-   imu_gnss
+   sensor_model
    install_3dmodel
    
 Indices and tables

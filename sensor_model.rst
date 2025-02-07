@@ -687,3 +687,237 @@ Unity Editor を起動し、「Terrain」を右クリックで表示されるリ
      - 対応するROS Topic（例：/zx120/gnss_compass/fix, /heading）
      
        が重機の動作に合わせて正しく変化していることを確認する
+
+LiDARセンサモデルの追加方法
+--------------------------------------------------------------------------
+（注意）2025.2時点ではOPERAの建機に常設のLiDARセンサはありません
+
+1．Unity Editorで空オブジェクトの作成
+
+　　　Unity Editor を起動し、LiDAR用の空オブジェクトを作成する
+
+.. list-table::
+   :widths: 15 30
+   :header-rows: 1
+
+   * - 図　5-1 　[拡大]
+     - 操作
+   * - .. image:: imu_gnss/img/add_empty_for_lidar.png
+          :scale: 100%
+          :height: 100px
+          :width: 200px
+     - Unity Editor 「Hierarchy」タブから「zx120」「base_link」「body_link」
+
+       を選択し右クリックで表示されるリストから「Create Empty」を選択する
+
+   * - .. image:: imu_gnss/img/rename_lidar.png
+          :scale: 100%
+          :height: 100px
+          :width: 200px
+     - Unity Editor 「Inspector」上で作成したGameObjectの名前を任意に変更する
+
+       例）GameObject →　lidar1
+
+２．LiDARセンサモデルの取付け位置を変更する
+
+.. list-table::
+   :widths: 15 30
+   :header-rows: 1  
+
+   * - 図　5-2 　[拡大]
+     - 操作
+   * - .. image:: imu_gnss/img/set_position_lidar.png
+          :scale: 100%
+          :height: 100px
+          :width: 200px
+     - Editor上のMove tool, Rotate tool, 「Inspector」上のTransformへ
+    
+       値をキーボード入力する、などを用いてbody_link上への
+
+       LiDARモデルの固定位置を決定する
+
+
+３．lidar1オブジェクトにLiDARのセンサprefabをアタッチする（例：Velodyne VLP-16）
+
+.. list-table::
+   :widths: 15 10
+   :header-rows: 1
+
+   * - 図　5-3 　[拡大]
+     - 操作
+   * - .. image:: imu_gnss/img/attatch_lidar_prefab.png
+          :scale: 100%
+          :height: 100px
+          :width: 200px
+     - ProjectウィンドウのPackages/UnitySensors/Runtime/Prefabs/LiDAR/Velodyne
+     
+       フォルダから配置したいLiDARのprefabファイルを選択し「Hierarchy」上の
+       
+       オブジェクト「lidar1」へドラッグ＆ドロップする　（例：VLP-16）
+
+４．LiDARセンサモデルの各種コンフィギュレーション
+
+.. list-table::
+   :widths: 15 10
+   :header-rows: 1
+
+   * - 図　5-4 　[拡大]
+     - 操作
+   * - .. image:: imu_gnss/img/lidar_config.png
+          :scale: 100%
+          :height: 100px
+          :width: 200px
+     - 「Hierarchy」上からアタッチしたVLP-16 prefab下の「Sensor」オブジェクトを
+     
+       左クリックで選択し「Inspector」より「Raycast LiDAR Sensor」スクリプトの
+      
+       設定値を必要に応じて任意に変更する
+
+       （各パラメータ説明については割愛）
+
+５. LiDARセンサモデルのROSメッセージ出力機能の追加
+
+.. list-table::
+   :widths: 15 10
+   :header-rows: 1
+
+   * - 図　5-5 　[拡大]
+     - 操作
+   * - .. image:: imu_gnss/img/add_pc2_msg_publisher.png
+          :scale: 100%
+          :height: 100px
+          :width: 200px
+     - 「Sensor」オブジェクトを選択し、「Inspector」から「Add Component」より
+    
+       「Raycast LiDAR Point Cloud 2 Msg Pulisher」を追加する
+
+   * - .. image:: imu_gnss/img/pc2_msg_publisher_setting.png
+          :scale: 100%
+          :height: 100px
+          :width: 200px
+     - 「Hierarchy」上からアタッチした
+     
+       Raycast LiDAR Point Cloud 2 Msg Pulisher下の
+     
+       Topic Name（=ROSメッセージとして出力する際のトピック名）
+      
+       Header/Frame_id(=センサデータの基準時座標系名)
+
+       をそれぞれ任意に設定する（例：いずれもzx120/lidar1）
+
+RGBイメージセンサ（=カメラ）モデルの追加方法
+--------------------------------------------------------------------------
+（注意）2025.2時点ではOPERAの建機に常設のカメラはありません
+
+1．Unity Editorで空オブジェクトの作成
+
+Unity Editor を起動し、カメラ用の空オブジェクトを作成する
+
+.. list-table::
+   :widths: 15 30
+   :header-rows: 1
+
+   * - 図　6-1 　[拡大]
+     - 操作
+   * - .. image:: imu_gnss/img/add_empty_for_cam.png
+          :scale: 100%
+          :height: 100px
+          :width: 200px
+     - Unity Editor 「Hierarchy」タブから「zx120」「base_link」「body_link」
+
+       を選択し右クリックで表示されるリストから「Create Empty」を選択する
+
+   * - .. image:: imu_gnss/img/rename_cam.png
+          :scale: 100%
+          :height: 100px
+          :width: 200px
+     - Unity Editor 「Inspector」上で作成したGameObjectの名前を任意に変更する
+
+       例）GameObject →　cam1
+
+２．カメラモデルの取付け位置を変更する
+
+.. list-table::
+   :widths: 15 30
+   :header-rows: 1  
+
+   * - 図　6-2 　[拡大]
+     - 操作
+   * - .. image:: imu_gnss/img/set_position_cam.png
+          :scale: 100%
+          :height: 100px
+          :width: 200px
+     - Editor上のMove tool, Rotate tool, 「Inspector」上のTransformへ
+    
+       値をキーボード入力する、などを用いてbody_link上への
+
+       カメラモデルの固定位置を決定する
+
+
+３．cam1オブジェクトにカメラセンサのprefabをアタッチする（例：RGBカメラ）
+
+.. list-table::
+   :widths: 15 10
+   :header-rows: 1
+
+   * - 図　6-3 　[拡大]
+     - 操作
+   * - .. image:: imu_gnss/img/attatch_rgbcam_prefab.png
+          :scale: 100%
+          :height: 100px
+          :width: 200px
+     - ProjectウィンドウのPackages/UnitySensors/Runtime/Prefabs/Camera/RGBCamera
+     
+       フォルダから配置したいprefabファイルを選択し「Hierarchy」上の
+       
+       オブジェクト「cam1」へドラッグ＆ドロップする　（例：RGBCamera）
+
+４．カメラセンサモデルの各種コンフィギュレーション
+
+.. list-table::
+   :widths: 15 10
+   :header-rows: 1
+
+   * - 図　6-4 　[拡大]
+     - 操作
+   * - .. image:: imu_gnss/img/rgbcam_config.png
+          :scale: 100%
+          :height: 100px
+          :width: 200px
+     - 「Hierarchy」上からアタッチしたRGBCamera prefabを
+     
+       左クリックで選択し「Inspector」より「Camera」「RGB Camera Sensor」
+      
+       スクリプトの設定値を必要に応じて任意に変更する
+
+       （各パラメータ説明については割愛）
+
+５. カメラセンサモデルのROSメッセージ出力機能の追加
+
+.. list-table::
+   :widths: 15 10
+   :header-rows: 1
+
+   * - 図　6-5 　[拡大]
+     - 操作
+   * - .. image:: imu_gnss/img/add_cam_image_msg_publisher.png
+          :scale: 100%
+          :height: 100px
+          :width: 200px
+     - 「RGBCamera」オブジェクトを選択し、「Inspector」から「Add Component」より
+    
+       「Camera Image Msg Pulisher」を追加する
+
+   * - .. image:: imu_gnss/img/cam_image_msg_publisher_setting.png
+          :scale: 100%
+          :height: 100px
+          :width: 200px
+     - 「Hierarchy」上からアタッチした
+     
+       Camera Image Msg Pulisher下の
+     
+       Topic Name（=ROSメッセージとして出力する際のトピック名）
+      
+       Header/Frame_id(=センサデータの基準時座標系名)
+
+       をそれぞれ任意に設定する（例：いずれもzx120/cam1）
