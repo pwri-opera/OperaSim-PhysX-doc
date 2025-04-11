@@ -4,7 +4,6 @@
    contain the root `toctree` directive.
 
 Welcome to OperaSim-PhysX's documentation!
-Test Update
 ==========================================
 
 Simulator on Unity + PhysX communicating with ROS
