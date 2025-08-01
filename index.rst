@@ -20,7 +20,7 @@ Simulator on Unity + PhysX communicating with ROS
    parameter-tuning
    construction_machine_model
    sensor_model
-   install_3dmodel
+   import_3dmodel
    
 Indices and tables
 ==================
