@@ -39,4 +39,12 @@ LandXMLファイルを選択すると、以下のようにSurface要素が一覧
 
 .. image:: import_3dmodel/img/operasim-landxml-objects.png
 
-Surface要素を当たり判定のある地形に変換するには、Hierarchyパネルから変換したいゲームオブジェクトを選択して、メニューから `Terrain > Object to Terrain` を選択してください。
+Surface要素を当たり判定のある地形に変換するには、Hierarchyパネルから変換したいゲームオブジェクトを選択します。この際、 **LandXML_Surfaceをツリー上で展開して個別のSurface要素を選択する** ことに注意してください。
+
+.. image:: import_3dmodel/img/operasim-landxml-surface-element.png
+
+メニューから `Terrain > Object to Terrain` を選択します。
+
+既存の地形を無効化したい場合は、既存のTerrainのゲームオブジェクトを選択して、インスペクタ上でTerrainとTerrainColliderコンポーネントのチェックボックスをオフにしてください。
+
+.. image:: import_3dmodel/img/operasim-disable-existing-terrain.png
